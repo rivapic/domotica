@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import TermoAriston
-import TuyaBreakerold
+import TuyaBreaker
 import time
 
 tiempo_espera=15
