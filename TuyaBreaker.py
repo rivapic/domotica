@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import tinytuya
 import base64
 import time
@@ -7,6 +9,9 @@ import json
 INTESIDAD_CONTRATADA= 16   ### La intensidad contrada 16*230= 3680w
 device_name = "Automatico" ### El nombre que le pones a tu dispositivo Tuya
 IP_ADDRESS = 'Auto'        ### La Ip local o Auto para automatico
+
+print (tinytuya.version)
+
 
 # Cargar el archivo devices.json extraido con tinytuya wizzard
 with open('devices.json', 'r') as file:
@@ -72,11 +77,11 @@ def decode_phase(value):
            # print('grupo1:',grupo1 , '        Tension:', voltaje /10,'V')
            # print('grupo2:',grupo2 , 'Intensidad:', intensidad /1000,'A' )
            # print('grupo3:',grupo3, 'Potencia:', potencia /1000,'KW' )
-            print('Tension:', Tension /10,'V')
-            print('Intensidad:', Intensidad /1000,'A' )
-            print('Potencia:', Potencia /1000,'KW' ) 
+            print(' Tension:', Tension /10,'V')
+            print(' Intensidad:', Intensidad /1000,'A' )
+            print(' Potencia:', Potencia /1000,'KW' ) 
             porcentaje= (Intensidad/10)/INTESIDAD_CONTRATADA
-            print('Porcentaje contratado:', porcentaje ,'%' )
+            print(' Porcentaje contratado:', porcentaje ,'%' )
 
 # Función para procesar los datos recibidos
 def process_data(data):
@@ -97,6 +102,7 @@ def process_data(data):
             # Aquí puedes agregar lógica específica para cada código
             if code == "phase_a":
                 decode_phase(value)
+        print("-" * 40)  # Separador para mejor legibilidad
 
 
 
@@ -104,22 +110,23 @@ def process_data(data):
 def main():
     device = setup_device()
     #Solicitar el estado del dispositivo
+
+    try:
+        process_data(request_status(device))
     
-    process_data(request_status(device))
-    
-    while True:
-        try:            
-            # Recibir los datos desde el dispositivo
-            received_data = receive_data(device)
+        while True:
+            try:            
+                # Recibir los datos desde el dispositivo
+                received_data = receive_data(device)
             
-            # Procesar los datos recibidos
-            process_data(received_data)
+                # Procesar los datos recibidos
+                process_data(received_data)
         
-        except Exception as e:
-            print(f"Error: {e}")
-        
-        # Espera un segundo antes de la siguiente iteración
-        time.sleep(15)
+            except Exception as e:
+                print(f"Error: {e}") 
+            time.sleep(15)
+    except KeyboardInterrupt:
+        print("\nSaliendo del programa...")
 
 # Ejecutar el programa si es el archivo principal
 if __name__ == '__main__':

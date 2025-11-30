@@ -7,5 +7,5 @@ cryptography==44.0.0
 idna==3.10
 pycparser==2.22
 requests==2.32.3
-tinytuya==1.15.1
+tinytuya==1.17.4
 urllib3==2.3.0

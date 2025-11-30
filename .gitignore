@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Logs
+*.log
+aqua_http_logs/
+
+# Local configuration/data
+devices.json
+credentials.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
