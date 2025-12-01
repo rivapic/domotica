@@ -14,9 +14,23 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
-	"postCreateCommand": "pip install -r requirements.txt"
-	//"postCreateCommand": "pip install json"
+	// Create and configure a virtual environment and use it for installs.
+	// - Creates a .venv in the workspace
+	// - Upgrades pip inside the venv and installs requirements there
 
+	//"postCreateCommand": "pip install json"
+// 1. Crea el entorno virtual e instala dependencias al crear el contenedor
+  //"postCreateCommand": "pip install -r requirements.txt"
+  "postCreateCommand": "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt && echo 'source ./.venv/bin/activate' >> ~/.bashrc",
+  
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "./.venv/bin/python",
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  }
 
 	// Configure tool-specific properties.
 	// "customizations": {},
