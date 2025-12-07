@@ -1,6 +1,11 @@
 # Control domotico con dispositivos Tuya y Ariston
 # Creamos el entorno virtual
 
+# lectura de termometros
+termometro "nombredeldispositivo"
+
+
+# con entorno virtual
 python3 -m venv .venv  ### .venv usado por poetry y vscode
 
 source .venv/bin/activate

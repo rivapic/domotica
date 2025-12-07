@@ -30,7 +30,13 @@ def main():
     device_id = device_info['id']
     device_key = device_info['key']
     # Using 'Auto' for IP as per common tinytuya usage when IP is dynamic or unknown
-    ip_address = 'Auto' 
+    # Using "device_info['ip'] if te ip local is en json file (normaly not I add manually before ) device_info['ip']
+    #print(f"mac:  {device_info['mac']}")
+    #print(f"Using IP:  {device_info['ip']}")  
+
+    #ip_address = device_info['ip'] ## NO FUNCIONA AUNQUE SEA LA IP CORRECTA
+    ip_address = 'Auto'
+
 
     #print(f"Connecting to {target_device_name}...")
     
@@ -97,8 +103,8 @@ def main():
         if scale is not None:
             return num / (10 ** scale)
         # fallback: keep previous behaviour for temperature/humidity
-        if str(dps_key) in ('1', '2'):
-            return num / 10.0
+        #if str(dps_key) in ('1', '2'):
+        #    return num / 10.0
         return num
 
     def get_code_for(dps_key):
@@ -121,16 +127,16 @@ def main():
         print(f"{code}={scaled}")
 
     # Mostrar resumen de temperatura/humedad si existen
-    if '1' in dps:
-        temperature = scale_value('1', dps['1'])
-        humedad = scale_value('2', dps.get('2')) if '2' in dps else None
+    #if '1' in dps:
+        #temperature = scale_value('1', dps['1'])
+        #humedad = scale_value('2', dps.get('2')) if '2' in dps else None
 
         #print(f"Temperatura {target_device_name} {now} : {temperature} °C")
         #if humedad is not None:
         #    print(f"Humedad {target_device_name} {now} : {humedad} %")
-    else:
-        print("Temperature data (DPS 1) not found in response.")
-        print(f"Full response: {status}")
+    #else:
+    #    print("Temperature data (DPS 1) not found in response.")
+    #    print(f"Full response: {status}")
 
 if __name__ == "__main__":
     main()
