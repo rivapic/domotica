@@ -25,13 +25,13 @@ cicloforkespera(){
   pid3=$!
   ./termometro.py puerta_entrada &
   pid4=$!
-#  ./termometro.py Automatico &
-#  pid5=$!
+  ./termometro.py Automatico &
+  pid5=$!
   wait $pid1
   wait $pid2
   wait $pid3
   wait $pid4
-#  wait $pid5
+  wait $pid5
 }
   
 while true; do cicloforkespera; sleep 0.1; done

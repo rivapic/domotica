@@ -47,7 +47,8 @@ def main():
     try:
         d = tinytuya.Device(dev_id=device_id, address=ip_address, local_key=device_key, version=3.3)
         
-        # Get status
+        # Get status or recive
+        #status = d.status()
         status = d.receive()
     except Exception as e:
         #print(f"Error connecting to device '{target_device_name}': {e}")
@@ -108,6 +109,21 @@ def main():
     def get_code_for(dps_key):
         return mapping.get(str(dps_key), {}).get('code', 'N/A')
 
+    def get_unit_for(dps_key):
+        entry = mapping.get(str(dps_key), {})
+        # check 'values'
+        vals = _parse_values_obj(entry.get('values', {}))
+        if isinstance(vals, dict) and 'unit' in vals:
+            return vals['unit']
+        # check 'raw_values'
+        raw = _parse_values_obj(entry.get('raw_values', {}))
+        if isinstance(raw, dict) and 'unit' in raw:
+            return raw['unit']
+        return None
+
+    def get_type_for(dps_key):
+        return mapping.get(str(dps_key), {}).get('type', 'N/A')
+
     def dps_sort_key(item):
         k, _ = item
         try:
@@ -132,8 +148,19 @@ def main():
     for k, v in sorted(dps.items(), key=dps_sort_key):
         code = get_code_for(k)
         scaled = scale_value(k, v)
+        data_type = get_type_for(k)
+        unit = get_unit_for(k)
         #print(f"DPS {k} ({code}): raw={v} scaled={scaled}")
-        print(f"{code}={scaled}")
+        
+        # Format output based on type
+        if data_type == "Boolean":
+            output = f"{code}={v}"
+        else:
+            output = f"{code}={scaled}"
+            if unit:
+                output += f" {unit}"
+        
+        print(output)
         if code=="phase_a":
             decode_phase(v)
 
