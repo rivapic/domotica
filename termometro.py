@@ -4,6 +4,7 @@ import tinytuya
 import json
 import sys
 from datetime import datetime
+import base64
 
 def main():
     # Load devices.json
@@ -47,7 +48,7 @@ def main():
         d = tinytuya.Device(dev_id=device_id, address=ip_address, local_key=device_key, version=3.3)
         
         # Get status
-        status = d.status()
+        status = d.receive()
     except Exception as e:
         #print(f"Error connecting to device '{target_device_name}': {e}")
         #print("Possible causes:")
@@ -57,7 +58,7 @@ def main():
         return
     
     if not status or 'dps' not in status:
-        print("Failed to retrieve status from device.")
+        #print("Failed to retrieve status from device.")
         return
 
     dps = status['dps']
@@ -102,9 +103,6 @@ def main():
         scale = get_scale_for(dps_key)
         if scale is not None:
             return num / (10 ** scale)
-        # fallback: keep previous behaviour for temperature/humidity
-        #if str(dps_key) in ('1', '2'):
-        #    return num / 10.0
         return num
 
     def get_code_for(dps_key):
@@ -117,7 +115,18 @@ def main():
         except Exception:
             return k
 
-    # Imprimir todos los DPS con su código y valor raw/escala
+    # Función para decodificar la Tension Intensidad y potencia
+    def decode_phase(value):
+            decoded_value = base64.b64decode(value)
+            binary_value = ''.join(format(byte, '08b') for byte in decoded_value)
+            Tension= int(binary_value[:16],2)
+            Intensidad = int(binary_value[16:40],2)
+            Potencia = int(binary_value[-24:],2)
+            print(' Tension:', Tension /10,'V')
+            print(' Intensidad:', Intensidad /1000,'A' )
+            print(' Potencia:', Potencia /1000,'KW' ) 
+
+    # Imprimir todos los DPS con su código y valor
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"Dispositivo: {target_device_name} a las {now}")
     for k, v in sorted(dps.items(), key=dps_sort_key):
@@ -125,18 +134,8 @@ def main():
         scaled = scale_value(k, v)
         #print(f"DPS {k} ({code}): raw={v} scaled={scaled}")
         print(f"{code}={scaled}")
-
-    # Mostrar resumen de temperatura/humedad si existen
-    #if '1' in dps:
-        #temperature = scale_value('1', dps['1'])
-        #humedad = scale_value('2', dps.get('2')) if '2' in dps else None
-
-        #print(f"Temperatura {target_device_name} {now} : {temperature} °C")
-        #if humedad is not None:
-        #    print(f"Humedad {target_device_name} {now} : {humedad} %")
-    #else:
-    #    print("Temperature data (DPS 1) not found in response.")
-    #    print(f"Full response: {status}")
+        if code=="phase_a":
+            decode_phase(v)
 
 if __name__ == "__main__":
     main()

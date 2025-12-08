@@ -5,7 +5,7 @@
 termometro "nombredeldispositivo"
 
 
-# con entorno virtual
+# Con entorno virtual
 python3 -m venv .venv  ### .venv usado por poetry y vscode
 
 source .venv/bin/activate

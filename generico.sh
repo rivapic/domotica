@@ -6,14 +6,14 @@ cicloserie(){
   ./termometro.py termometro_oficina
   ./termometro.py termometro_dormitorio
   ./termometro.py termometro_salon
-  ./termometro.py Puerta_entrada
+  ./termometro.py puerta_entrada
 }
 
 ciclofork(){
   ./termometro.py termometro_oficina &
   ./termometro.py termometro_dormitorio &
   ./termometro.py termometro_salon &
-  ./termometro.py Puerta_entrada &
+  ./termometro.py puerta_entrada &
 }
 
 cicloforkespera(){
@@ -23,12 +23,15 @@ cicloforkespera(){
   pid2=$!
   ./termometro.py termometro_salon &
   pid3=$!
-  ./termometro.py Puerta_entrada &
+  ./termometro.py puerta_entrada &
   pid4=$!
+#  ./termometro.py Automatico &
+#  pid5=$!
   wait $pid1
   wait $pid2
   wait $pid3
   wait $pid4
+#  wait $pid5
 }
   
 while true; do cicloforkespera; sleep 0.1; done
