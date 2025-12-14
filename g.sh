@@ -25,7 +25,7 @@ run_all_devices(){
   pids=()
   for name in "${names[@]}"; do
     #echo "Lanzando generico.py para: $name"
-    ./genericodb.py "$name" &
+    ./generico.py "$name" &
     pids+=("$!")
   done
 
