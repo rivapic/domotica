@@ -31,6 +31,7 @@ def main():
     # Extract device details
     device_id = device_info['id']
     device_key = device_info['key']
+    product_name = device_info['product_name']
     # Using 'Auto' for IP as per common tinytuya usage when IP is dynamic or unknown
     # Using "device_info['ip'] if te ip local is en json file (normaly not I add manually before ) device_info['ip']
     #print(f"mac:  {device_info['mac']}")
@@ -48,10 +49,23 @@ def main():
     try:
         d = tinytuya.Device(dev_id=device_id, address=ip_address, local_key=device_key, version=3.3)
         
+        #print("------- Product Name:", product_name)
+    
+        if product_name == 'Contact Sensor':
+            #print("door sensor")
+            status = d.status()
+        else:
+
+            status = d.receive()
+
+
         # Get status or recive
-        status = d.status()
+        #status = d.status()
         #status = d.receive()
-        print(status)
+        
+        
+        ##### None ###
+        ##print(status)
     except Exception as e:
         #print(f"Error connecting to device '{target_device_name}': {e}")
         #print("Possible causes:")
@@ -66,7 +80,7 @@ def main():
     # Try to save status into DB but don't fail if DB is unreachable
     try:
         insert_status_db(target_device_name, status)
-        print("Status guardado en MariaDB para", target_device_name)
+        #print("Status guardado en MariaDB para", target_device_name)
     except Exception as e:
         print("No se pudo guardar status en MariaDB:", e)
 
@@ -174,7 +188,7 @@ def main():
             if unit:
                 output += f" {unit}"
         
-        #print(output)
+        print(output)
         if code=="phase_a":
             decode_phase(v)
 
