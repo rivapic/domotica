@@ -3,7 +3,9 @@
 import json
 import os
 import getpass
+from aquaaristonremotethermo.aristonaqua import AquaAristonHandler
 from db_mariadb import insert_status_db
+import time
 
 CREDENTIALS_FILE = 'credentials.json'
 
@@ -39,8 +41,8 @@ tiempo_espera=15
 
 # --- Insert status JSON into MariaDB ---
 
-from aquaaristonremotethermo.aristonaqua import AquaAristonHandler
-import time
+
+
 
 # Configuración inicial
 def setup_ariston_handler(username, password, boiler_type):
@@ -48,7 +50,7 @@ def setup_ariston_handler(username, password, boiler_type):
     Inicializa y retorna una instancia de AquaAristonHandler.
     """
     handler = AquaAristonHandler(username=username, password=password, boiler_type=boiler_type)
-    print(handler.version)
+    #print(handler.version)
     handler.start()
     
     # Espera hasta que el handler esté disponible
@@ -74,7 +76,7 @@ def print_sensor_values(sensor_values):
 
 # Función principal
 def main():
-    print("TermoAriston - Iniciando...")
+    #print("TermoAriston - Iniciando...")
 
     # Obtener credenciales
     creds = get_credentials()
@@ -84,13 +86,13 @@ def main():
 
     try:
         # Bucle principal para monitorear los valores de los sensores
-        while True:
-            sensor_values = api_instance.sensor_values
-
-            print(sensor_values)
-            insert_status_db("termo", sensor_values)
-            #print_sensor_values(sensor_values)
-            time.sleep(tiempo_espera)  # Espera antes de la siguiente lectura
+        #while True:
+        sensor_values = api_instance.sensor_values
+            
+        #print(sensor_values)
+        insert_status_db("termo", sensor_values)
+        print_sensor_values(sensor_values)
+        time.sleep(tiempo_espera)  # Espera antes de la siguiente lectura
 
     except KeyboardInterrupt:
         print("\nTermoAriston - Deteniendo...")
@@ -98,7 +100,7 @@ def main():
     finally:
         # Detener el handler al finalizar
         api_instance.stop()
-        print("TermoAriston - Detenido.")
+        #print("TermoAriston - Detenido.")
 
 # Punto de entrada del programa
 if __name__ == "__main__":

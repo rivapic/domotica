@@ -16,6 +16,7 @@ aqua_http_logs/
 # Local configuration/data
 devices.json
 credentials.json
+tinytuya.json
 
 # OS generated files
 .DS_Store

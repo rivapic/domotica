@@ -34,7 +34,7 @@ def get_credentials():
     print(f"Credenciales guardadas en {CREDENTIALS_FILE}")
     return credentials
 
-tiempo_espera=15
+tiempo_espera=1
 
 
 from aquaaristonremotethermo.aristonaqua import AquaAristonHandler
@@ -72,7 +72,7 @@ def print_sensor_values(sensor_values):
 
 # Función principal
 def main():
-    print("TermoAriston - Iniciando...")
+    #print("TermoAriston - Iniciando...")
 
     # Obtener credenciales
     creds = get_credentials()
@@ -94,7 +94,7 @@ def main():
     finally:
         # Detener el handler al finalizar
         api_instance.stop()
-        print("TermoAriston - Detenido.")
+        #print("TermoAriston - Detenido.")
 
 # Punto de entrada del programa
 if __name__ == "__main__":

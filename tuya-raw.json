@@ -1,0 +1,1058 @@
+{
+    "result": [
+        {
+            "active_time": 1766575742,
+            "biz_type": 0,
+            "category": "tdq",
+            "create_time": 1766575742,
+            "icon": "smart/icon/ay1573546958261faWcj/523100ac559ca926847dbb7a68bc2257.png",
+            "id": "bf8a206c2ef8c4accf2sxf",
+            "ip": "188.171.246.62",
+            "lat": "43.53",
+            "local_key": "@8aXE9J7n*sOH`oU",
+            "lon": "-5.68",
+            "model": "",
+            "name": "termometro_display",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "x3o8epevyeo3z3oa",
+            "product_name": "T & H Sensor",
+            "status": [
+                {
+                    "code": "temp_unit_convert",
+                    "value": "c"
+                },
+                {
+                    "code": "temp_current",
+                    "value": 198
+                },
+                {
+                    "code": "humidity_value",
+                    "value": 59
+                },
+                {
+                    "code": "battery_state",
+                    "value": "high"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766592739,
+            "uuid": "58a7e07db4ef6e27"
+        },
+        {
+            "active_time": 1766575689,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1630660046,
+            "icon": "smart/icon/ay1478656418970ovCZL/47e909ffa37b191e58fefbc069065d12.png",
+            "id": "bfbbf08a9a709db597aukz",
+            "ip": "188.171.246.62",
+            "lat": "43.53",
+            "local_key": "&h|}|(`8~QZfTN12",
+            "lon": "-5.68",
+            "model": "",
+            "name": "bombilla dormitorio",
+            "online": false,
+            "owner_id": "36751681",
+            "product_id": "sz6m5udjwvdaym7p",
+            "product_name": "NK-SH0005-BO",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value",
+                    "value": 0
+                },
+                {
+                    "code": "colour_data",
+                    "value": "000003e803e8"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "000e0d0000000000000000c80000"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                },
+                {
+                    "code": "work_power",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 0
+                },
+                {
+                    "code": "runtime",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766592343,
+            "uuid": "147a1bd56e11186a"
+        },
+        {
+            "active_time": 1706095606,
+            "biz_type": 0,
+            "category": "wsdcg",
+            "create_time": 1706095606,
+            "icon": "smart/icon/ay15427647462366edzT/53c1c0d70d455d17ad15971996b442c6.png",
+            "id": "bfedf47cff58bb943fh8yy",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": ">!ug)9O)~ckJk(*6",
+            "lon": "-5.6779",
+            "model": "TH08",
+            "name": "termometro_oficina",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "xflodz7oja0pndk3",
+            "product_name": "T&H Sensor",
+            "status": [
+                {
+                    "code": "va_temperature",
+                    "value": 179
+                },
+                {
+                    "code": "va_humidity",
+                    "value": 67
+                },
+                {
+                    "code": "battery_percentage",
+                    "value": 71
+                },
+                {
+                    "code": "temp_unit_convert",
+                    "value": "c"
+                },
+                {
+                    "code": "maxtemp_set",
+                    "value": 180
+                },
+                {
+                    "code": "minitemp_set",
+                    "value": 130
+                },
+                {
+                    "code": "maxhum_set",
+                    "value": 90
+                },
+                {
+                    "code": "minihum_set",
+                    "value": 60
+                },
+                {
+                    "code": "temp_alarm",
+                    "value": "cancel"
+                },
+                {
+                    "code": "hum_alarm",
+                    "value": "cancel"
+                },
+                {
+                    "code": "temp_sensitivity",
+                    "value": 10
+                },
+                {
+                    "code": "hum_sensitivity",
+                    "value": 3
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766591070,
+            "uuid": "12f23292e3618563"
+        },
+        {
+            "active_time": 1705435772,
+            "biz_type": 0,
+            "category": "wsdcg",
+            "create_time": 1675807673,
+            "icon": "smart/icon/bay1624869296421wDFy/f1c885d6e3a2b7dd5326d23de9a2a900.png",
+            "id": "bfd99206567233a733doe1",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "taG4NzUciyUB+m8=",
+            "lon": "-5.6779",
+            "model": "",
+            "name": "termometro_dormitorio",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "g2y6z3p3ja2qhyav",
+            "product_name": "\u6e29\u6e7f\u5ea6\u4f20\u611f\u5668wifi",
+            "status": [
+                {
+                    "code": "va_temperature",
+                    "value": 144
+                },
+                {
+                    "code": "va_humidity",
+                    "value": 79
+                },
+                {
+                    "code": "battery_percentage",
+                    "value": 56
+                },
+                {
+                    "code": "maxtemp_set",
+                    "value": 200
+                },
+                {
+                    "code": "minitemp_set",
+                    "value": 120
+                },
+                {
+                    "code": "maxhum_set",
+                    "value": 80
+                },
+                {
+                    "code": "minihum_set",
+                    "value": 60
+                },
+                {
+                    "code": "temp_alarm",
+                    "value": "cancel"
+                },
+                {
+                    "code": "hum_alarm",
+                    "value": "cancel"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766591003,
+            "uuid": "49d574bc7b1b1fec"
+        },
+        {
+            "active_time": 1706095608,
+            "biz_type": 0,
+            "category": "wsdcg",
+            "create_time": 1706095608,
+            "icon": "smart/icon/ay15427647462366edzT/53c1c0d70d455d17ad15971996b442c6.png",
+            "id": "bf7eed01b314520248bsts",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "MBd>gtMK's.6Tc!3",
+            "lon": "-5.6779",
+            "model": "TH08",
+            "name": "termometro_salon",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "xflodz7oja0pndk3",
+            "product_name": "T&H Sensor",
+            "status": [
+                {
+                    "code": "va_temperature",
+                    "value": 150
+                },
+                {
+                    "code": "va_humidity",
+                    "value": 73
+                },
+                {
+                    "code": "battery_percentage",
+                    "value": 63
+                },
+                {
+                    "code": "temp_unit_convert",
+                    "value": "c"
+                },
+                {
+                    "code": "maxtemp_set",
+                    "value": 600
+                },
+                {
+                    "code": "minitemp_set",
+                    "value": -200
+                },
+                {
+                    "code": "maxhum_set",
+                    "value": 100
+                },
+                {
+                    "code": "minihum_set",
+                    "value": 0
+                },
+                {
+                    "code": "temp_alarm",
+                    "value": "cancel"
+                },
+                {
+                    "code": "hum_alarm",
+                    "value": "cancel"
+                },
+                {
+                    "code": "temp_sensitivity",
+                    "value": 10
+                },
+                {
+                    "code": "hum_sensitivity",
+                    "value": 10
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766589443,
+            "uuid": "229b89a669c29aaa"
+        },
+        {
+            "active_time": 1733329028,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1733329028,
+            "icon": "smart/icon/bay17276620713082cth/0d4d6a7f2390f7874670ea40bc8ce506.png",
+            "id": "bf4f9844c8ea8a0080hhop",
+            "ip": "188.171.246.62",
+            "lat": "43.5344",
+            "local_key": "yDt/v8X=4M|UN++8",
+            "lon": "-5.6779",
+            "model": "\u4eae\u725b \u82af\u7247\u4e0a\u677f BP5758 9w\u7403\u6ce1",
+            "name": "bombilla_salon",
+            "online": false,
+            "owner_id": "36751681",
+            "product_id": "xibcsv6dp3ajzth9",
+            "product_name": "LED BULB W509Z2",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value_v2",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value_v2",
+                    "value": 523
+                },
+                {
+                    "code": "colour_data_v2",
+                    "value": "{\"h\":0,\"s\":1000,\"v\":1000}"
+                },
+                {
+                    "code": "scene_data_v2",
+                    "value": "{\"scene_num\":1,\"scene_units\":[{\"bright\":200,\"h\":0,\"s\":0,\"temperature\":0,\"unit_change_mode\":\"static\",\"unit_gradient_duration\":13,\"unit_switch_duration\":14,\"v\":0}]}"
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "music_data",
+                    "value": ""
+                },
+                {
+                    "code": "control_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAEAAAPoA+gD6AIL"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": true
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766586526,
+            "uuid": "6abf558cd399a276"
+        },
+        {
+            "active_time": 1709978371,
+            "biz_type": 0,
+            "category": "mcs",
+            "create_time": 1709978371,
+            "icon": "smart/icon/ay1574490117625MIxZY/fa22e30b32b420105d0d6090fdd93c39.png",
+            "id": "bf99e522b326843f778u3r",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "%ehS#a%]1(x7l8`f",
+            "lon": "-5.6779",
+            "model": "Door Sensor",
+            "name": "Puerta entrada",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "g2uishoy2nasxgz0",
+            "product_name": "Contact Sensor",
+            "status": [
+                {
+                    "code": "doorcontact_state",
+                    "value": false
+                },
+                {
+                    "code": "battery_percentage",
+                    "value": 100
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766586392,
+            "uuid": "1cd8cbbb8742326c"
+        },
+        {
+            "active_time": 1734009047,
+            "biz_type": 0,
+            "category": "tdq",
+            "create_time": 1705424838,
+            "icon": "smart/icon/ay15522876175557bVit/a65245324a45a0b71de6de3373072739.png",
+            "id": "bfb77c6b582cd764e4pa65",
+            "ip": "188.171.246.62",
+            "lat": "43.5344",
+            "local_key": "IB@IN7UYvIQ9$#._",
+            "lon": "-5.6779",
+            "model": "WBP-1G",
+            "name": "radiador oficina",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "zk2ktip9pzorzleb",
+            "product_name": "WBP-1G",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 100
+                },
+                {
+                    "code": "cur_current",
+                    "value": 2540
+                },
+                {
+                    "code": "cur_power",
+                    "value": 5891
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2319
+                },
+                {
+                    "code": "test_bit",
+                    "value": 2
+                },
+                {
+                    "code": "fault",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "2"
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": "AAAC"
+                },
+                {
+                    "code": "switch_type",
+                    "value": "flip"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766576841,
+            "uuid": "8c434b8180c357d2"
+        },
+        {
+            "active_time": 1705436960,
+            "biz_type": 0,
+            "category": "tdq",
+            "create_time": 1705436960,
+            "icon": "smart/icon/ay15522876175557bVit/a65245324a45a0b71de6de3373072739.png",
+            "id": "bfb0199e102de36faccb4i",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "wlaFML2h?mVs-M12",
+            "lon": "-5.6779",
+            "model": "WBP-1G",
+            "name": "radiador_salon",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "zk2ktip9pzorzleb",
+            "product_name": "WBP-1G",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 77
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2335
+                },
+                {
+                    "code": "test_bit",
+                    "value": 2
+                },
+                {
+                    "code": "fault",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "0"
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": "AAAC"
+                },
+                {
+                    "code": "switch_type",
+                    "value": "flip"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766576690,
+            "uuid": "f5607b8beb31b6bc"
+        },
+        {
+            "active_time": 1714972264,
+            "biz_type": 0,
+            "category": "tdq",
+            "create_time": 1709978326,
+            "icon": "smart/icon/bay1677130922441Tlce/e20919d47fc7e35c12cfdaa2648baae4.png",
+            "id": "bf1e47319a99be579bwm5p",
+            "ip": "188.171.246.62",
+            "lat": "43.5344",
+            "local_key": "UvWa_PaX'V~k9bd>",
+            "lon": "-5.6779",
+            "model": "",
+            "name": "Enchufe 1",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "m4jtkjc43ltrilru",
+            "product_name": "T34-Smart Plug+",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 1
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2348
+                },
+                {
+                    "code": "test_bit",
+                    "value": 1
+                },
+                {
+                    "code": "fault",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "2"
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": "AAAC"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+02:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766576554,
+            "uuid": "de1c36e06843cc8b"
+        },
+        {
+            "active_time": 1705437910,
+            "biz_type": 0,
+            "category": "tdq",
+            "create_time": 1705437877,
+            "icon": "smart/icon/ay15522876175557bVit/a65245324a45a0b71de6de3373072739.png",
+            "id": "bf7599a89a28c05ba78daa",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "`nf5Sxo/zT)aU!^f",
+            "lon": "-5.6779",
+            "model": "WBP-1G",
+            "name": "radiador_dormitorio",
+            "online": false,
+            "owner_id": "36751681",
+            "product_id": "zk2ktip9pzorzleb",
+            "product_name": "WBP-1G",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 109
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2357
+                },
+                {
+                    "code": "test_bit",
+                    "value": 2
+                },
+                {
+                    "code": "fault",
+                    "value": 0
+                },
+                {
+                    "code": "relay_status",
+                    "value": "2"
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": "AAAC"
+                },
+                {
+                    "code": "switch_type",
+                    "value": "flip"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766575764,
+            "uuid": "22a1c589fc769084"
+        },
+        {
+            "active_time": 1709220716,
+            "biz_type": 0,
+            "category": "dlq",
+            "create_time": 1709220716,
+            "icon": "smart/icon/ay1536897190133VVeLx/de5eaf686faf216601dd6c7d366f296b.png",
+            "id": "bfd59ab45d0a3f49c2wucl",
+            "ip": "85.152.105.133",
+            "lat": "43.5344",
+            "local_key": "E}KNOa=:~V*oLadu",
+            "lon": "-5.6779",
+            "model": "",
+            "name": "Automatico",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "wcihaluccfsoayqa",
+            "product_name": "Breaker",
+            "status": [
+                {
+                    "code": "total_forward_energy",
+                    "value": 490484
+                },
+                {
+                    "code": "phase_a",
+                    "value": "CQoAJjQACNQ="
+                },
+                {
+                    "code": "fault",
+                    "value": 0
+                },
+                {
+                    "code": "switch_prepayment",
+                    "value": false
+                },
+                {
+                    "code": "clear_energy",
+                    "value": false
+                },
+                {
+                    "code": "balance_energy",
+                    "value": 0
+                },
+                {
+                    "code": "charge_energy",
+                    "value": 0
+                },
+                {
+                    "code": "leakage_current",
+                    "value": 0
+                },
+                {
+                    "code": "switch",
+                    "value": true
+                },
+                {
+                    "code": "alarm_set_1",
+                    "value": "BAEAHg=="
+                },
+                {
+                    "code": "alarm_set_2",
+                    "value": "AQAAEQMAAQ4EAACq"
+                },
+                {
+                    "code": "breaker_id",
+                    "value": "ETU9-IOT-WIFI"
+                },
+                {
+                    "code": "over_vol_protect_time",
+                    "value": 1
+                },
+                {
+                    "code": "over_vol_recovery_time",
+                    "value": 10
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766572241,
+            "uuid": "8448a8c64217152b"
+        },
+        {
+            "active_time": 1766445416,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1709978342,
+            "icon": "smart/icon/bay1628652352170c2wS/37158ab90653cb407375a622b67939a8.jpg",
+            "id": "bf173dea5700a03e38fxkt",
+            "ip": "188.171.246.62",
+            "lat": "43.5344",
+            "local_key": "wv{EVV-df{!C7U[w",
+            "lon": "-5.6779",
+            "model": "",
+            "name": "bombilla oficina",
+            "online": false,
+            "owner_id": "36751681",
+            "product_id": "wkxs9kh5gwwtxvg9",
+            "product_name": "Smart Bulb",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value_v2",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value_v2",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data_v2",
+                    "value": "{\"h\":0,\"s\":1000,\"v\":1000}"
+                },
+                {
+                    "code": "scene_data_v2",
+                    "value": "{\"scene_num\":1,\"scene_units\":[{\"bright\":200,\"h\":0,\"s\":0,\"temperature\":0,\"unit_change_mode\":\"static\",\"unit_gradient_duration\":13,\"unit_switch_duration\":14,\"v\":0}]}"
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "music_data",
+                    "value": ""
+                },
+                {
+                    "code": "control_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAEAAAPoA+gD6APo"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": false
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766447363,
+            "uuid": "20c537a4f7388c25"
+        },
+        {
+            "active_time": 1735492016,
+            "biz_type": 0,
+            "category": "kg",
+            "create_time": 1735492016,
+            "icon": "smart/icon/ay15327721968035jwx9/3a44e23b4adf8c37d7f5997cdaa2498a.jpg",
+            "id": "vdevo173549201595137",
+            "ip": "188.171.246.62",
+            "lat": "",
+            "local_key": "e?y/_69j/1y1.BmI",
+            "lon": "",
+            "model": "101/104 \u65b0\u6a21\u5757",
+            "name": "virtual_termo",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "5vorxbbzvavwrrqs",
+            "product_name": "Wi-Fi Smart Switch",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                }
+            ],
+            "sub": false,
+            "time_zone": "",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1766351425,
+            "uuid": "vdevo173549201595137"
+        },
+        {
+            "active_time": 1709223017,
+            "biz_type": 0,
+            "category": "cz",
+            "create_time": 1706095443,
+            "icon": "smart/icon/ay15107356719526e3ps/98e0287ec5398acf336febfd46948dd1.png",
+            "id": "bfd89158e89c0529b57zc8",
+            "ip": "85.152.105.133",
+            "lat": "43.53",
+            "local_key": "vGEL-2?~Af%_mF'/",
+            "lon": "-5.68",
+            "model": "",
+            "name": "Enchufe 2",
+            "online": false,
+            "owner_id": "36751681",
+            "product_id": "ddms3xyc8sfctabe",
+            "product_name": "Smart Plug +",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 1
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2296
+                },
+                {
+                    "code": "relay_status",
+                    "value": "last"
+                },
+                {
+                    "code": "overcharge_switch",
+                    "value": false
+                },
+                {
+                    "code": "child_lock",
+                    "value": false
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+01:00",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1749142163,
+            "uuid": "a93ffbf1c497e3a2"
+        },
+        {
+            "active_time": 1742512523,
+            "biz_type": 0,
+            "category": "kg",
+            "create_time": 1742512523,
+            "icon": "smart/icon/ay1530852819489IlyEr/2095506b84aecb16a843c2d04b4ccd61.png",
+            "id": "vdevo174251252381047",
+            "ip": "188.171.246.62",
+            "lat": "",
+            "local_key": "1{PtG_0h:N^Ir^Sl",
+            "lon": "",
+            "model": "",
+            "name": "virtual_door",
+            "online": true,
+            "owner_id": "36751681",
+            "product_id": "6agmomauevaw5zav",
+            "product_name": "WIFI Switch Module",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "",
+            "uid": "eu163065989308041Jfp",
+            "update_time": 1742512550,
+            "uuid": "vdevo174251252381047"
+        }
+    ],
+    "success": true,
+    "t": 1766593672519,
+    "tid": "7e82847fe0e511f0bfd7de116888fc39",
+    "file": {
+        "name": "tuya-raw.json",
+        "description": "Full raw list of Tuya devices.",
+        "account": "5wgusmxacxde8gnpf5qy",
+        "date": "2025-12-24T17:27:52.596374",
+        "tinytuya": "1.17.4"
+    }
+}

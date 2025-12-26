@@ -32,6 +32,7 @@ def main():
     device_id = device_info['id']
     device_key = device_info['key']
     product_name = device_info['product_name']
+    device_name = device_info['name']
     # Using 'Auto' for IP as per common tinytuya usage when IP is dynamic or unknown
     # Using "device_info['ip'] if te ip local is en json file (normaly not I add manually before ) device_info['ip']
     #print(f"mac:  {device_info['mac']}")
@@ -54,10 +55,10 @@ def main():
         if product_name == 'Contact Sensor':
             #print("door sensor")
             status = d.status()
+        elif device_name == 'Automatico':
+            print(".")
         else:
-
             status = d.receive()
-
 
         # Get status or recive
         #status = d.status()
@@ -191,6 +192,7 @@ def main():
         print(output)
         if code=="phase_a":
             decode_phase(v)
+        print("-" * 40) 
 
 if __name__ == "__main__":
     main()

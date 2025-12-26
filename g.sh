@@ -1,9 +1,29 @@
 #!/usr/bin/env bash
 source .venv/bin/activate  # activate virtualenv if present
 
-# Ejecuta ./generico.py <name> para cada dispositivo listado en devices.json
-# Lanza todos los procesos en paralelo y espera a que terminen antes de repetir
-run_all_devices(){
+# Variable para almacenar PIDs de procesos hijo
+CHILD_PIDS=()
+
+# Función para limpiar procesos hijo al recibir Ctrl+C
+cleanup() {
+  echo ""
+  echo "Deteniendo monitores..."
+  for pid in "${CHILD_PIDS[@]}"; do
+    if kill -0 "$pid" 2>/dev/null; then
+      kill "$pid" 2>/dev/null || true
+    fi
+  done
+  wait
+  echo "Todos los monitores detenidos."
+  exit 0
+}
+
+# Capturar Ctrl+C (SIGINT) y ejecutar cleanup
+trap cleanup SIGINT
+
+# Ejecuta ./generic_monitor_d.py <name> para cada dispositivo listado en devices.json
+# Lanza todos los procesos en paralelo (cada uno ejecuta su loop de monitoreo independiente)
+run_all_device_monitors(){
   # extrae la lista de nombres desde devices.json usando jq
   if ! command -v jq >/dev/null 2>&1; then
     echo "Error: jq no está instalado. Instálalo (por ejemplo: sudo apt install jq)" >&2
@@ -22,21 +42,21 @@ run_all_devices(){
     return
   fi
 
-  pids=()
+  CHILD_PIDS=()
   for name in "${names[@]}"; do
-    #echo "Lanzando generico.py para: $name"
-    ./generico.py "$name" &
-    pids+=("$!")
+    echo "Lanzando generic_monitor_d.py para: $name"
+    ./generic_monitor_d.py "$name" &
+    CHILD_PIDS+=("$!")
   done
 
-  # Esperar a todos los procesos lanzados
-  for pid in "${pids[@]}"; do
+  # Esperar a todos los procesos de monitoreo (cada uno tiene su propio loop infinito)
+  for pid in "${CHILD_PIDS[@]}"; do
     wait "$pid" || true
   done
 }
 
-# loop principal: correr continuamente con un pequeño retardo
+# loop principal: correr continuamente
 while true; do
-  run_all_devices
+  run_all_device_monitors
   sleep 1
 done
