@@ -8,17 +8,17 @@ from datetime import datetime
 
 
 def load_device_info(device_name):
-    """Load device info from devices.json by device name"""
+    """Load device info from devices.monitor.json by device name"""
     try:
-        with open('devices.json', 'r') as f:
+        with open('devices.monitor.json', 'r') as f:
             devices = json.load(f)
     except FileNotFoundError:
-        print("Error: devices.json not found.")
+        print("Error: devices.monitor.json not found.")
         return None
     
     device_info = next((d for d in devices if d['name'] == device_name), None)
     if not device_info:
-        print(f"Error: Device '{device_name}' not found in devices.json.")
+        print(f"Error: Device '{device_name}' not found in devices.monitor.json.")
         return None
     
     return device_info

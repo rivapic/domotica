@@ -6,13 +6,40 @@ import tinytuya
 import time
 import json
 import sys
+import logging
+import os
 from db_mariadb import insert_status_db
 from dps_utils import print_dps, load_device_info
 
 ##tinytuya.set_debug(True)
 
+# Configure logging to /var/log
+log_file = "/var/log/generic_monitor_d.log"
+try:
+    # Ensure log directory exists and is writable
+    os.makedirs(os.path.dirname(log_file) if os.path.dirname(log_file) else ".", exist_ok=True)
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(log_file),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+    logger = logging.getLogger(__name__)
+except Exception as e:
+    # Fallback if /var/log is not writable
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    logger = logging.getLogger(__name__)
+    logger.warning(f"Could not write to {log_file}: {e}")
+
 # Load devices.json and get device by name from command-line argument
 if len(sys.argv) < 2:
+    logger.error("Uso: ./generic_monitor_d.py <nombre_dispositivo>")
     print("Uso: ./generic_monitor_d.py <nombre_dispositivo>")
     sys.exit(1)
 
@@ -20,6 +47,7 @@ target_device_name = sys.argv[1]
 
 device_info = load_device_info(target_device_name)
 if not device_info:
+    logger.error(f"Device '{target_device_name}' not found in devices.json")
     sys.exit(1)
 
 # Extract device parameters
@@ -40,12 +68,23 @@ KEEPALIVE_TIMER = 12
 
 print(f" > Monitoring Device: {DEVICE_NAME} < ")
 print(" > Send Request for Status < ")
+logger.info(f"Starting monitoring for device: {DEVICE_NAME}")
 data = d.status()
 print('Initial Status: %r' % data)
 print_dps(data, device_info, DEVICE_NAME)
 print("-" * 40)
 
+# Save initial status to DB
+if data and 'Error' not in data:
+    try:
+        insert_status_db(DEVICE_NAME, data)
+        logger.info(f"Initial status saved for {DEVICE_NAME}")
+    except Exception as e:
+        logger.error(f"Could not save to MariaDB for {DEVICE_NAME}: {e}")
+        print("No se pudo guardar en MariaDB:", e)
+
 if data and 'Err' in data:
+    logger.warning(f"Status request returned an error for {DEVICE_NAME}. Version: {d.version}, Local Key: {d.local_key}")
     print("Status request returned an error, is version %r and local key %r correct?" % (d.version, d.local_key))
 
 print(" > Begin Monitor Loop <")
@@ -70,9 +109,27 @@ while(True):
 
         # poll for status
         print(" > Send Request for Status < ")
+        logger.debug(f"Requesting status for {DEVICE_NAME}")
         data = d.status()
         status_time = time.time() + STATUS_TIMER
         heartbeat_time = time.time() + KEEPALIVE_TIMER
+        
+        # Save status to DB
+        if data:
+            print(f'{DEVICE_NAME}: Received Payload: %r' % data)
+            print_dps(data, device_info, DEVICE_NAME)
+            print("-" * 40)
+            if 'Error' not in data:
+                try:
+                    insert_status_db(DEVICE_NAME, data)
+                    logger.debug(f"Status saved for {DEVICE_NAME}")
+                except Exception as e:
+                    logger.error(f"Could not save to MariaDB for {DEVICE_NAME}: {e}")
+                    print("No se pudo guardar en MariaDB:", e)
+            else:        
+                logger.warning(f"Received error for {DEVICE_NAME}, retrying in 5 seconds...")
+                print(f'{DEVICE_NAME}: Received error, omitting db save to retry 5 seconds...')
+                time.sleep(5)
     elif time.time() >= heartbeat_time:
         # send a keep-alive
         data = d.heartbeat(nowait=False)
@@ -81,27 +138,26 @@ while(True):
         # no need to send anything, just listen for an asynchronous update
         data = d.receive()
     
-    if data is not None:
+    #if data is not None:
+    #    print(f'{DEVICE_NAME}: Received Payload: %r' % data)
+    #    Print formatted DPS data
+    #    print_dps(data, device_info, DEVICE_NAME)
+    #    print("-" * 40)
+
+    if data :
         print(f'{DEVICE_NAME}: Received Payload: %r' % data)
         # Print formatted DPS data
-        try:
-            print_dps(data, device_info, DEVICE_NAME)
-            print("-" * 40)
-        except Exception as e:
-            print(f"Error parsing DPS: {e}")
-    
-    if data :
+        print_dps(data, device_info, DEVICE_NAME)
+        print("-" * 40)
         # No guardar si hay un Error
         if 'Error' not in data:
             try:
                 insert_status_db(DEVICE_NAME, data)
-                #print("Status guardado en MariaDB para", DEVICE_NAME)
+                logger.debug(f"Status saved for {DEVICE_NAME}")
             except Exception as e:
+                logger.error(f"Could not save to MariaDB for {DEVICE_NAME}: {e}")
                 print("No se pudo guardar en MariaDB:", e)
-
-
-    if data and 'Err' in data:
-        print(f'{DEVICE_NAME}: Received error, watiting to retry...')
-        print("Received error!")
-        # rate limit retries so we don't hammer the device
-        time.sleep(5)
+        else:        
+            logger.warning(f"Received error for {DEVICE_NAME}, retrying in 5 seconds...")
+            print(f'{DEVICE_NAME}: Received error, omitting db save to retry 5 seconds...')
+            time.sleep(5)

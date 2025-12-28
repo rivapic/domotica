@@ -15,9 +15,14 @@ aqua_http_logs/
 
 # Local configuration/data
 devices.json
+devices.monitor.json
 credentials.json
 tinytuya.json
 
 # OS generated files
 .DS_Store
 Thumbs.db
+
+#junk
+agua_http_logs/
+kk/

@@ -1,0 +1,17 @@
+[Unit]
+Description=TinyTuya Local Monitor Daemon
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/riva/src/domotica
+ExecStart=/bin/bash /home/riva/src/domotica/tuya_local_monitor.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
