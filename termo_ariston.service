@@ -1,0 +1,14 @@
+[Unit]
+Description=Termo Ariston Daemon Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/riva/src/domotica
+ExecStart=/usr/bin/python3 /home/riva/src/domotica/termo_ariston.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

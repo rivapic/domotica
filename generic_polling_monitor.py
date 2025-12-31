@@ -14,7 +14,7 @@ from dps_utils import print_dps, load_device_info
 ##tinytuya.set_debug(True)
 
 # Configure logging to /var/log
-log_file = "/var/log/generic_monitor_d.log"
+log_file = "/var/log/generic_polling_monitor_d.log"
 try:
     # Ensure log directory exists and is writable
     os.makedirs(os.path.dirname(log_file) if os.path.dirname(log_file) else ".", exist_ok=True)
@@ -39,8 +39,8 @@ except Exception as e:
 
 # Load devices.json and get device by name from command-line argument
 if len(sys.argv) < 2:
-    logger.error("Uso: ./generic_monitor_d.py <nombre_dispositivo>")
-    print("Uso: ./generic_monitor_d.py <nombre_dispositivo>")
+    logger.error("Uso: ./generic_polling_monitor.py <nombre_dispositivo>")
+    print("Uso: ./generic_polling_monitor.py <nombre_dispositivo>")
     sys.exit(1)
 
 target_device_name = sys.argv[1]

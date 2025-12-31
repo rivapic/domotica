@@ -1,5 +1,5 @@
 [Unit]
-Description=TinyTuya Local Monitor Daemon
+Description=TinyTuya Polling Monitor Daemon
 After=network.target mariadb.service
 
 [Service]

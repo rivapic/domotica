@@ -41,6 +41,8 @@ def ensure_table(conn, table_name='device_status'):
                 id BIGINT AUTO_INCREMENT PRIMARY KEY,
                 device_name VARCHAR(255),
                 ts DATETIME,
+                ip VARCHAR(45),
+                origin VARCHAR(100),
                 status_json LONGTEXT
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
             """
@@ -48,7 +50,7 @@ def ensure_table(conn, table_name='device_status'):
     conn.commit()
 
 
-def insert_status_db(device_name, status_obj, table_name='device_status'):
+def insert_status_db(device_name, status_obj, ip=None, origin='polling', table_name='device_status'):
     db_conf = get_db_config()
     try:
         conn = pymysql.connect(host=db_conf['host'], user=db_conf['user'], password=db_conf['password'],
@@ -56,8 +58,8 @@ def insert_status_db(device_name, status_obj, table_name='device_status'):
         try:
             ensure_table(conn, table_name)
             with conn.cursor() as cur:
-                cur.execute(f"INSERT INTO {table_name} (device_name, ts, status_json) VALUES (%s, NOW(), %s)",
-                            (device_name, json.dumps(status_obj)))
+                cur.execute(f"INSERT INTO {table_name} (device_name, ts, ip, origin, status_json) VALUES (%s, NOW(), %s, %s, %s)",
+                            (device_name, ip, origin, json.dumps(status_obj)))
             conn.commit()
         finally:
             conn.close()
