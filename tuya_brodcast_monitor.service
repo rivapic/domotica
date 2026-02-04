@@ -1,0 +1,19 @@
+[Unit]
+Description=TinyTuya Brodcast Monitor Daemon
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/riva/src/domotica
+ExecStart=/home/riva/src/domotica/.venv/bin/python3  /home/riva/src/domotica/generic_brodcast_monitor.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
+
+

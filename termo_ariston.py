@@ -131,7 +131,7 @@ def main():
                 sensor_values = api_instance.sensor_values
                 
                 # Guardar en base de datos
-                insert_status_db("termo", sensor_values)
+                insert_status_db("termo", sensor_values, origin='ariston_daemon')
                 
                 # Mostrar valores en consola
                 print_sensor_values(sensor_values)

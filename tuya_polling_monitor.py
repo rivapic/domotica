@@ -121,7 +121,7 @@ while(True):
             print("-" * 40)
             if 'Error' not in data:
                 try:
-                    insert_status_db(DEVICE_NAME, data)
+                    insert_status_db(DEVICE_NAME, data, ip=DEVICEIP, origin='polling')
                     logger.debug(f"Status saved for {DEVICE_NAME}")
                 except Exception as e:
                     logger.error(f"Could not save to MariaDB for {DEVICE_NAME}: {e}")
@@ -152,7 +152,7 @@ while(True):
         # No guardar si hay un Error
         if 'Error' not in data:
             try:
-                insert_status_db(DEVICE_NAME, data)
+                insert_status_db(DEVICE_NAME, data, ip=DEVICEIP, origin='polling')
                 logger.debug(f"Status saved for {DEVICE_NAME}")
             except Exception as e:
                 logger.error(f"Could not save to MariaDB for {DEVICE_NAME}: {e}")

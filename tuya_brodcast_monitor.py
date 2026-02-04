@@ -6,7 +6,7 @@ from dps_utils import load_device_info,load_device_info_by_id, print_dps
 from db_mariadb import insert_status_db
 
 # Configurar logs
-LOG_FILE = "/var/log/generic_brodcast_monitor_d.log"
+LOG_FILE = "/var/log/tinituya_brodcast_monitor_d.log"
 
 # Función para escribir logs
 def log_message(message):

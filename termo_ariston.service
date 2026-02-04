@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/home/riva/src/domotica
-ExecStart=/usr/bin/python3 /home/riva/src/domotica/termo_ariston.py
+ExecStart=/home/riva/src/domotica/.venv/bin/python3 /home/riva/src/domotica/termo_ariston.py
 Restart=on-failure
 RestartSec=10
 

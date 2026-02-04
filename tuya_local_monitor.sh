@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Demonio que ejecuta monitores para todos los dispositivos Tuya
 # Este script lanza generic_monitor_d.py para cada dispositivo en devices.monitor.json
 
@@ -26,16 +26,16 @@ log "INFO" "========================================="
 # Activar virtualenv si existe
 if [ -f .venv/bin/activate ]; then
     log "INFO" "Activando virtualenv..."
-    source .venv/bin/activate
+    . .venv/bin/activate
 fi
 
 # Variable para almacenar PIDs de procesos hijo
-CHILD_PIDS=()
+CHILD_PIDS=""
 
 # Función para limpiar procesos hijo al recibir señal SIGTERM
 cleanup() {
     log "INFO" "Recibida señal de parada. Deteniendo monitores..."
-    for pid in "${CHILD_PIDS[@]}"; do
+    for pid in $CHILD_PIDS; do
         if kill -0 "$pid" 2>/dev/null; then
             log "INFO" "Deteniendo proceso PID: $pid"
             kill "$pid" 2>/dev/null || true
@@ -64,31 +64,34 @@ run_all_device_monitors(){
     return 1
   fi
 
-  mapfile -t names < <(jq -r '.[].name // empty' devices.monitor.json)
+  names=$(jq -r '.[].name // empty' devices.monitor.json)
 
-  if [ ${#names[@]} -eq 0 ]; then
+  if [ -z "$names" ]; then
     log "ERROR" "No se encontraron dispositivos en devices.monitor.json"
     return 1
   fi
 
-  log "INFO" "Se encontraron ${#names[@]} dispositivo(s)"
+  count=$(echo "$names" | wc -l)
+  log "INFO" "Se encontraron $count dispositivo(s)"
 
   # Detener procesos anteriores si los hay
-  for pid in "${CHILD_PIDS[@]}"; do
+  for pid in $CHILD_PIDS; do
     if kill -0 "$pid" 2>/dev/null; then
       kill "$pid" 2>/dev/null || true
     fi
   done
+  CHILD_PIDS=""
 
-  for name in "${names[@]}"; do
+  for name in $names; do
     log "INFO" "Lanzando monitor para dispositivo: $name"
-    ./generic_monitor_d.py "$name" >> "$LOG_FILE" 2>&1 &
-    CHILD_PIDS+=("$!")
-    log "INFO" "Monitor para '$name' lanzado con PID: ${CHILD_PIDS[-1]}"
+    ./tuya_polling_monitor.py "$name" >> "$LOG_FILE" 2>&1 &
+    new_pid=$!
+    CHILD_PIDS="$CHILD_PIDS $new_pid"
+    log "INFO" "Monitor para '$name' lanzado con PID: $new_pid"
   done
 
   # Esperar a todos los procesos de monitoreo (cada uno tiene su propio loop infinito)
-  for pid in "${CHILD_PIDS[@]}"; do
+  for pid in $CHILD_PIDS; do
     wait "$pid" || true
   done
 }
