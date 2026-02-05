@@ -16,6 +16,7 @@ aqua_http_logs/
 # Local configuration/data
 devices.json
 devices.monitor.json
+snapshot.json
 credentials.json
 tinytuya.json
 
@@ -26,3 +27,4 @@ Thumbs.db
 #junk
 agua_http_logs/
 kk/
+CERTS/
