@@ -1,12 +1,18 @@
 # Control domotico con dispositivos Tuya y Ariston
 
 Puesta en marcha:
-Copiar tu fichero devices.json obtenido con tuya "python -m tinytuya wizard" a la raiz del proyecto  "https://github.com/jasonacox/tinytuya"
-Copiar los dispositivos que se van a monitorizar a otro fichero devices.monitor.json (dispositivmos que hay que hacerles pulling cada poco)
-Generar los ficheros de certificados autofirmado para nginx y dejarlos en certs/
-Arrancar "docker compose up"
-Crear el datasource en grafana.
-Importar tu dasboard si lo tienes en grafana.
+
+- Copiar tu fichero devices.json obtenido con tuya "python -m tinytuya wizard" a la raiz del proyecto  "https://github.com/jasonacox/tinytuya"
+
+- Copiar los dispositivos que se van a monitorizar a otro fichero devices.monitor.json (dispositivmos que hay que hacerles pulling cada poco)
+
+- Generar los ficheros de certificados autofirmado para nginx y dejarlos en certs/
+
+- Arrancar "docker compose up"
+
+- Crear el datasource en grafana.
+
+- Importar tu dasboard si lo tienes en grafana.
 
 
 # Creamos el entorno virtual
