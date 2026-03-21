@@ -53,12 +53,14 @@ if not device_info:
 # Extract device parameters
 DEVICEID = device_info.get('id')
 DEVICEKEY = device_info.get('key')
-DEVICEIP = device_info.get('ip', 'Auto')  # Use 'Auto' if IP is not specified
+DEVICEIP = device_info.get('ip') or 'Auto'  # Use 'Auto' if IP is not specified or empty
 DEVICEVERSION = device_info.get('version', '3.3')  # Default to 3.3 if not specified
 DEVICE_NAME = device_info.get('name')
 
+
 # Setting the address to 'Auto' or None will trigger a scan which will auto-detect both the address and version, but this can take up to 8 seconds
-d = tinytuya.Device(DEVICEID, DEVICEIP, DEVICEKEY, version=DEVICEVERSION, persist=True)
+print(f' ------------> deviceid= {DEVICEID} ip= {DEVICEIP} devicekey= {DEVICEKEY} version= {DEVICEVERSION}')
+d = tinytuya.Device(DEVICEID,'Auto', DEVICEKEY,version=DEVICEVERSION, persist=True)
 # If you know both the address and version then supplying them is a lot quicker
 # d = tinytuya.Device(DEVICEID, DEVICEIP, DEVICEKEY, version=DEVICEVERSION, persist=True)
 
