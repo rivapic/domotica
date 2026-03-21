@@ -15,6 +15,18 @@ Puesta en marcha:
 - Importar tu dasboard si lo tienes en grafana.
 
 
+
+
+TODO:
+
+- Generar los certificados autofirmados para nginx automaticamente
+
+- Importar el dashboard y el datasource de grafana automaticamente
+
+- Upgrade tinytuya 1.17.6
+
+
+
 # Creamos el entorno virtual
 # lectura de termometros
 termometro "nombredeldispositivo"
