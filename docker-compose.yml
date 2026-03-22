@@ -4,10 +4,12 @@ services:
     container_name: nginx_proxy
     ports:
       - "80:80"
-      - "443:443"
+      - "444:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./certs:/etc/nginx/certs:ro
+      - nginx_certs:/etc/nginx/certs
+      - ./nginx-entrypoint.sh:/docker-entrypoint.d/nginx-entrypoint.sh:ro
+    command: ["sh", "/docker-entrypoint.d/nginx-entrypoint.sh"]
     environment:
       - TZ=Europe/Madrid
     depends_on:
@@ -23,6 +25,9 @@ services:
       - TZ=Europe/Madrid
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./dashboard.json:/var/lib/grafana/dashboards/dashboard.json:ro
     networks:
       - domotica_network
 
@@ -88,6 +93,7 @@ services:
 volumes:
   grafana_data:
   mariadb_data:
+  nginx_certs:
 
 networks:
   domotica_network:

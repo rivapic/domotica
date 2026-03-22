@@ -1,0 +1,14 @@
+apiVersion: 1
+
+datasources:
+  - name: MariaDB
+    type: mysql
+    uid: cfc9u6bay639cc
+    access: proxy
+    url: mariadb:3306
+    database: domotica
+    user: domotica
+    secureJsonData:
+      password: domotica_password
+    isDefault: true
+    editable: true
