@@ -1,7 +1,9 @@
-# Visualización de dispositivos Tuya y Ariston con Grafana
+# Visualización de dispositivos Tuya y Ariston con Tinytuya, Grafana y MariaDB
 
 ![alt text](img/IMG1.jpg)
 ![alt text](img/IMG2.jpg)
+
+
 
 
 Puesta en marcha:
@@ -10,10 +12,9 @@ Puesta en marcha:
 
 - Copiar los dispositivos que se van a monitorizar a otro fichero devices.monitor.json (dispositivmos que hay que hacerles pulling cada poco)
 
-- Crear crear el archivo credentials.json
+- Crear el archivo credentials.json
 
 - Arrancar "docker compose up"
-
 
 
 
