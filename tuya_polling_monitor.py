@@ -9,7 +9,7 @@ import sys
 import logging
 import os
 from db_mariadb import insert_status_db
-from dps_utils import print_dps, load_device_info
+from dps_utils import print_dps, load_device_info_polling
 
 ##tinytuya.set_debug(True)
 
@@ -45,7 +45,7 @@ if len(sys.argv) < 2:
 
 target_device_name = sys.argv[1]
 
-device_info = load_device_info(target_device_name)
+device_info = load_device_info_polling(target_device_name)
 if not device_info:
     logger.error(f"Device '{target_device_name}' not found in devices.json")
     sys.exit(1)

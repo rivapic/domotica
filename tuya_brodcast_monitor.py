@@ -2,7 +2,7 @@ import tinytuya
 import json
 import time
 import sys
-from dps_utils import load_device_info,load_device_info_by_id, print_dps
+from dps_utils import load_device_info_by_id, print_dps
 from db_mariadb import insert_status_db
 
 # Configurar logs
