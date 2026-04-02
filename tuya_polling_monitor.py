@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# TinyTuya Generic Monitor - Reads device params from devices.json
+# TinyTuya polling monitor - Reads device params from devices.monitor.json
 # -*- coding: utf-8 -*-
 
 import tinytuya
@@ -37,7 +37,7 @@ except Exception as e:
     logger = logging.getLogger(__name__)
     logger.warning(f"Could not write to {log_file}: {e}")
 
-# Load devices.json and get device by name from command-line argument
+# Load devices.monitor.json and get device by name from command-line argument
 if len(sys.argv) < 2:
     logger.error("Uso: ./generic_polling_monitor.py <nombre_dispositivo>")
     print("Uso: ./generic_polling_monitor.py <nombre_dispositivo>")
@@ -47,7 +47,7 @@ target_device_name = sys.argv[1]
 
 device_info = load_device_info_polling(target_device_name)
 if not device_info:
-    logger.error(f"Device '{target_device_name}' not found in devices.json")
+    logger.error(f"Device '{target_device_name}' not found in devices.monitor.json")
     sys.exit(1)
 
 # Extract device parameters

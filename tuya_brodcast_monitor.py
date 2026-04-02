@@ -28,11 +28,11 @@ def monitor():
     
     # Cargar mapeos de dispositivos
     try:
-        with open('devices.monitor.json', 'r') as f:
+        with open('devices.json', 'r') as f:
             all_devices = json.load(f)
     except FileNotFoundError:
         all_devices = []
-        msg = "Warning: devices.monitor.json no encontrado. Mostrando datos sin procesar."
+        msg = "Warning: devices.json no encontrado. Mostrando datos sin procesar."
         print(msg)
         log_message(msg)
     
