@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: domotica
+  labels:
+    app: grafana
+    app.kubernetes.io/part-of: domotica
+  annotations:
+    # Descomenta y ajusta según tu Ingress controller:
+    # --- Para nginx-ingress ---
+    # nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+    # nginx.ingress.kubernetes.io/websocket-services: "grafana"
+    # --- Para traefik ---
+    # traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    # --- Para TLS automático con cert-manager ---
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  # Descomenta si quieres forzar una clase específica:
+  # ingressClassName: nginx
+  tls:
+    - hosts:
+        - domotica.local
+      # Descomenta si usas cert-manager:
+      # secretName: grafana-tls
+  rules:
+    - host: domotica.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 3000

@@ -1,0 +1,16 @@
+.venv/
+.git/
+.devcontainer/
+.vscode/
+.sonar/
+__pycache__/
+k8s/
+img/
+new/
+aqua_http_logs/
+grafana/
+*.enc
+*.md
+docker-compose.yml
+nginx.conf
+nginx-entrypoint.sh

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tuya-polling-monitor
+  namespace: domotica
+  labels:
+    app: tuya-polling-monitor
+    app.kubernetes.io/part-of: domotica
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: tuya-polling-monitor
+  template:
+    metadata:
+      labels:
+        app: tuya-polling-monitor
+    spec:
+      containers:
+        - name: tuya-polling-monitor
+          # Cambiar por tu registro de imágenes, ej: registry.example.com/domotica:latest
+          image: domotica:latest
+          imagePullPolicy: IfNotPresent
+          command: ["bash", "tuya_local_monitor.sh"]
+          env:
+            - name: TZ
+              value: Europe/Madrid
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi

@@ -1,0 +1,45 @@
+# tuya_broadcast_monitor necesita hostNetwork (equivalente a network_mode: host)
+# para recibir paquetes broadcast UDP de los dispositivos Tuya en la red local.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tuya-broadcast-monitor
+  namespace: domotica
+  labels:
+    app: tuya-broadcast-monitor
+    app.kubernetes.io/part-of: domotica
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: tuya-broadcast-monitor
+  template:
+    metadata:
+      labels:
+        app: tuya-broadcast-monitor
+    spec:
+      # Equivalente a network_mode: host en docker-compose
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: tuya-broadcast-monitor
+          # Cambiar por tu registro de imágenes, ej: registry.example.com/domotica:latest
+          image: domotica:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "tuya_brodcast_monitor.py"]
+          env:
+            - name: TZ
+              value: Europe/Madrid
+            # En hostNetwork, el servicio mariadb no se resuelve por DNS del cluster
+            # Necesitamos apuntar a la IP del nodo o al servicio con FQDN
+            - name: MARIADB_HOST
+              value: mariadb.domotica.svc.cluster.local
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi

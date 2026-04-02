@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: termo-ariston
+  namespace: domotica
+  labels:
+    app: termo-ariston
+    app.kubernetes.io/part-of: domotica
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: termo-ariston
+  template:
+    metadata:
+      labels:
+        app: termo-ariston
+    spec:
+      containers:
+        - name: termo-ariston
+          # Cambiar por tu registro de imágenes, ej: registry.example.com/domotica:latest
+          image: domotica:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "termo_ariston.py"]
+          env:
+            - name: TZ
+              value: Europe/Madrid
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi

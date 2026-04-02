@@ -1,0 +1,47 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasource
+  namespace: domotica
+  labels:
+    app.kubernetes.io/part-of: domotica
+data:
+  datasource.yml: |
+    apiVersion: 1
+
+    datasources:
+      - name: MariaDB
+        type: mysql
+        uid: cfc9u6bay639cc
+        access: proxy
+        url: mariadb:3306
+        database: domotica
+        user: domotica
+        secureJsonData:
+          password: domotica_password
+        isDefault: true
+        editable: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards-provisioning
+  namespace: domotica
+  labels:
+    app.kubernetes.io/part-of: domotica
+data:
+  dashboards.yml: |
+    apiVersion: 1
+
+    providers:
+      - name: 'default'
+        orgId: 1
+        folder: ''
+        type: file
+        disableDeletion: false
+        updateIntervalSeconds: 30
+        allowUiUpdates: true
+        options:
+          path: /var/lib/grafana/dashboards
+          foldersFromFilesStructure: false
